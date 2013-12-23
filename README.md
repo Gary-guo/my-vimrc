@@ -10,6 +10,7 @@ my-vimrc
 + tab键用空格代替
 + 即时搜索显示
 + 自定义多窗口跳转和buffer跳转快捷键
+
 ####添加插件
 + [vundle](https://github.com/gmarik/vundle)用来管理插件
 + [vim-airline](https://github.com/bling/vim-airline)状态行插件
