@@ -163,8 +163,6 @@ Plugin 'scrooloose/nerdcommenter' "快速注释
 "
 Plugin 'sjl/gundo.vim' "显示vim撤销树
 "gundo.vim 配置{
-let g:gundo_width=50
-let g:gundo_preview_height=40
 nnoremap <silent> <F5> :GundoToggle<CR>
 "}
 "
