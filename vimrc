@@ -146,10 +146,27 @@ Plugin 'elzr/vim-json' "json 语法高亮
 Plugin 'kien/ctrlp.vim' "快速寻找文件
 "
 Plugin 'plasticboy/vim-markdown' "markdown 语法高亮
+"markdown 配置{
+let g:vim_markdown_folding_disabled=1 "禁止折叠
+" markdown 快捷键
+" ]]: go to next header.<Plug>(Markdown_MoveToNextHeader)
+" [[: go to previous header. Contrast
+" with]c.<Plug>(Markdown_MoveToPreviousHeader)
+" ][: go to next sibling header if any.<Plug>(Markdown_MoveToNextSiblingHeader)
+" []: go to previous sibling header if
+" any.<Plug>(Markdown_MoveToPreviousSiblingHeader)
+" ]c: go to Current header.<Plug>(Markdown_MoveToCurHeader)
+" ]u: go to parent header(Up).<Plug>(Markdown_MoveToParentHeader)
+"}
 "
 Plugin 'scrooloose/nerdcommenter' "快速注释
 "
 Plugin 'sjl/gundo.vim' "显示vim撤销树
+"gundo.vim 配置{
+let g:gundo_width=50
+let g:gundo_preview_height=40
+nnoremap <silent> <F5> :GundoToggle<CR>
+"}
 "
 "Plugin 'tpope/vim-sleuth' "自动根据文件类型设置shiftwidth和expandtab
 "
