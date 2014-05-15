@@ -29,6 +29,7 @@ map <Left> <Nop> "强迫自己使用hjkl
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
+
 nnoremap <leader>p :bprev<CR> "自定义buffer跳转
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>d :bdelete<CR> "关闭当前buffer标签
