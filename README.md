@@ -1,7 +1,7 @@
 my-vimrc
 ========
 
-##更改日记(2014-05-13)
+##更改日记(2014-05-15)
 
 ####基本设置
 + 编码设置为UTF-8
@@ -25,3 +25,10 @@ my-vimrc
 + [nerdcommenter](https://github.com/scrooloose/nerdcommenter)快速注释
 + [gundo.vim](https://github.com/sjl/gundo.vim)显示vim撤销树
 + [vim-surround](https://github.com/tpope/vim-surround)标签自动配对,例如XML标签
+
+####增加自动安装脚本
+```sh
+$git clone https://github.com/Gary-guo/my-vimrc.git ~/
+$cd ~/my-vimrc
+$bash install.sh
+```
