@@ -1,29 +1,21 @@
 #!/bin/bash
 
-BASHDIR=$(dirname $0)
-cd $BASHDIR
-CURRENT_DIR=`pwd`
-
-lnif () {
-    if [ -e "$1" ]; then
-        ln -sf "$1" "$2"
-    fi
-}
+today=`date +%Y%m%d`
+CURRENT_DIR=`pwd` #获取当前路径
 
 echo "Step1: backing up current vim config"
-tody=`date +%Y%m%d`
 for i in $HOME/.vim $HOME/.vimrc; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
 for i in $HOME/.vim $HOME/.vimrc; do [ -L $i ] && unlink $i; done
 
 echo "Step2: setting up symlinks"
-lnif $CURRENT_DIR/vimrc $HOME/.vimrc
-#lnif $CURRENT_DIR/vimrc.bundles $HOME/.vimrc.bundles
-lnif "$CURRENT_DIR/" "$HOME/.vim"
+if [ -e "$CURRENT_DIR/vimrc" ]; then
+    ln -sf $CURRENT_DIR/vimrc $HOME/.vimrc
+fi
 
 echo "Step3: install vundle"
-if [ ! -e $CURRENT_DIR/bundle/vundle ]; then
+if [ ! -e $HOME/.vim/bundle/vundle ]; then
     echo "Installing Vundle"
-    git clone https://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
+    git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 else
     echo "Upgrade Vundle"
     cd "$HOME/.vim/bundle/vundle" && git pull origin master
@@ -42,9 +34,8 @@ sudo apt-get install -y libclang-3.5-dev
 echo "Step5 compile YouCompleteMe"
 echo "It will take a long time, juse be patient!"
 echo "If error, you need to compile it yourself"
-echo "cd $CURRENT_DIR/bundle/YouCompleteMe/ && bash -x install.sh --clang-completer --system-libclang"
+echo "cd $HOME/.vim/bundle/YouCompleteMe/ && bash -x install.sh --clang-completer --system-libclang"
 cd $CURRENT_DIR/bundle/YouCompleteMe/
 bash -x install.sh --clang-completer --system-libclang
 
 echo "Install Done!"
-
