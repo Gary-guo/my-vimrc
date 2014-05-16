@@ -1,7 +1,9 @@
 #!/bin/bash
+#OS:  Ubuntu14.04
+#vim version: 7.4
 
 today=`date +%Y%m%d`
-CURRENT_DIR=`pwd` #获取当前路径
+CURRENT_DIR=`pwd`
 
 echo "Step1: Install git tool,libclang and update the compiler."
 sudo apt-get install -y git git-core
@@ -17,13 +19,13 @@ if [ -e "$CURRENT_DIR/vimrc" ]; then
     ln -sf $CURRENT_DIR/vimrc $HOME/.vimrc
 fi
 
-echo "Step4: install vundle"
-if [ ! -e $HOME/.vim/bundle/vundle ]; then
+echo "Step4: install Vundle"
+if [ ! -e $HOME/.vim/bundle/Vundle.vim ]; then
     echo "Installing Vundle"
     git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 else
     echo "Upgrade Vundle"
-    cd "$HOME/.vim/bundle/vundle" && git pull origin master
+    cd "$HOME/.vim/bundle/Vundle.vim" && git pull origin master
 fi
 
 echo "Step5: update/install plugins using Vundle"
@@ -36,7 +38,7 @@ echo "Step6 compile YouCompleteMe"
 echo "It will take a long time, juse be patient!"
 echo "If error, you need to compile it yourself"
 echo "cd $HOME/.vim/bundle/YouCompleteMe/ && bash -x install.sh --clang-completer --system-libclang"
-cd $CURRENT_DIR/bundle/YouCompleteMe/
+cd $HOME/.vim/bundle/YouCompleteMe/
 bash -x install.sh --clang-completer --system-libclang
 
 echo "Install Done!"

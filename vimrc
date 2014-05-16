@@ -65,8 +65,7 @@ Plugin 'Valloric/YouCompleteMe' "自动补全
 " $sudo apt-get install libclang-3.4-dev 
 " 安装YouCompleteMe,进入源码目录执行./install.sh --clang-completer --system-libclang
 " 需要配置适合自己的.ycm_extra_conf.py文件
-let g:ycm_extra_conf_globlist=['~/.vim/bundle/YouCompleteMe/cpp/ycm/*','!~/*']
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py' "设置全局配置模板
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py' "设置全局配置模板
 "符号触发器
 let g:ycm_semantic_triggers={
     \   'c' : ['->', '.'],

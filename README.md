@@ -1,7 +1,7 @@
 my-vimrc
 ========
 
-##更改日记(2014-05-15)
+##更改日记(2014-05-16)
 
 ####基本设置
 + 编码设置为UTF-8
@@ -28,7 +28,7 @@ my-vimrc
 
 ####增加自动安装脚本
 ```sh
-$git clone https://github.com/Gary-guo/my-vimrc.git ~/
-$cd ~/my-vimrc
-$bash install.sh
+$git clone https://github.com/Gary-guo/my-vimrc.git
+$cd my-vimrc
+$bash install.sh #or bash -x install.sh
 ```
