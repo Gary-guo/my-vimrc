@@ -6,6 +6,9 @@
 global_folder=global
 profile_folder=profiles
 
+own_profile_folder=$profile_folder/ProfilePowerline
+own_profile_gconf=$own_profile_folder/%gconf.xml
+
 
 # global configure
 function WriteGlobalFile()
@@ -23,8 +26,28 @@ function UpdateGlobalFile()
 function WriteOwnProfile()
 {
     echo "Write Own Profile"
+
+    if [ -d "$own_profile_folder" ]; then
+        cp $profile_folder/Default/%gconf.xml $own_profile_gconf
+    else
+        mkdir $own_profile_folder
+        cp $profile_folder/Default/%gconf.xml $own_profile_gconf
+    fi
 }
 
+
+
+### 自定义配置文件
+
+if [ -d "$profile_folder" ]; then # profile 目录存在
+    WriteOwnProfile 
+else # profile 目录不存在
+    echo "no Default configure file"
+    exit
+fi
+
+
+### 全局配置文件
 if [ -d "$global_folder" ]; then  # global 目录存在
     if [ -f "$global_folder/%gconf.xml" ]; then  # %gconf.xml 文件存在
         echo "global %gconf.xml found"
@@ -40,11 +63,3 @@ else # global 目录不存在
     touch $global_folder/%gconf.xml
     WriteGlobalFile
 fi
-
-if [ -d "$profile_folder" ]; then # profile 目录存在
-    WriteOwnProfile 
-else # profile 目录不存在
-    mkdir $profile_folder
-    WriteOwnProfile
-fi
-
