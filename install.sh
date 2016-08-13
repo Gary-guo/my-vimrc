@@ -21,6 +21,9 @@ echo "Step3: 创建新的软链接"
 if [ -e "$CURRENT_DIR/vimrc" ]; then
     ln -sf $CURRENT_DIR/vimrc $HOME/.vimrc
 fi
+if [ -e "$CURRENT_DIR/vim" ]; then
+    ln -sf $CURRENT_DIR/vim $HOME/.vim
+fi
 
 echo "Step4: 安装插件管理工具vim-plug"
 if [ ! -f $HOME/.vim/autoload/plug.vim ]; then

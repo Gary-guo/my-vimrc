@@ -55,7 +55,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "自动补全
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 "语法检查
 Plug 'scrooloose/syntastic'
 "浏览文件目录结构
@@ -64,5 +64,3 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 "显示vim撤销树
 Plug 'sjl/gundo.vim'
-
-call plug#end()
